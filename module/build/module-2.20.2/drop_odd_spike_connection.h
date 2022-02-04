@@ -56,8 +56,6 @@ class DropOddSpikeConnection : public nest::Connection< targetidentifierT >
 {
 private:
   double weight_; //!< Synaptic weight
-  
-  double t_lastspike; // extracted from send
 
 public:
   //! Type to use for representing common synapse properties
@@ -97,13 +95,19 @@ public:
    *
    * See Kunkel et al (2014), Sec 3.3.1, for background information.
    */
-  class ConnTestDummyNode : public nest::ConnTestDummyNodeBase{
+  class ConnTestDummyNode : public nest::ConnTestDummyNodeBase
+  {
   public:
-    // Ensure proper overriding of overloaded virtual functions.
-    // Return values from functions are ignored.
     using nest::ConnTestDummyNodeBase::handles_test_event;
     nest::port
-    handles_test_event( nest::SpikeEvent&, nest::rport ){
+    handles_test_event( nest::SpikeEvent&, nest::rport )
+    {
+      return nest::invalid_port_;
+    }
+
+    nest::port
+    handles_test_event( nest::DSSpikeEvent&, nest::rport )
+    {
       return nest::invalid_port_;
     }
   };
@@ -128,6 +132,7 @@ public:
   check_connection( nest::Node& s,
     nest::Node& t,
     nest::rport receptor_type,
+    double,
     const CommonPropertiesType& )
   {
     ConnTestDummyNode dummy_target;
@@ -143,6 +148,7 @@ public:
    */
   void send( nest::Event& e,
     nest::thread t,
+    double t_lastspike,
     const CommonPropertiesType& cp );
 
   // The following methods contain mostly fixed code to forward the
@@ -173,6 +179,7 @@ template < typename targetidentifierT >
 inline void
 DropOddSpikeConnection< targetidentifierT >::send( nest::Event& e,
   nest::thread t,
+  double last,
   const CommonPropertiesType& props )
 {
   if ( e.get_stamp().get_steps() % 2 ) // stamp is odd, drop it

@@ -167,7 +167,6 @@ nest::kernel()
 // Register connection rule.
 nest::kernel()
     .connection_manager.register_conn_builder< StepPatternBuilder >( "step_pattern" );
-
 //    nest::register_prototype_connection<BCPNNConnection>(nest::NestModule::get_network(),
 //                                                       "bcpnn_synapse");
 /*    nest::register_prototype_connection<BCPNNDopaConnection>(nest::NestModule::get_network(),

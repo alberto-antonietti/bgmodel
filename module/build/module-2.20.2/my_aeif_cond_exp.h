@@ -286,7 +286,7 @@ private:
 
     double GABAA_2_E_rev;    //!< GABAA 2 reversal Potential in mV
     double GABAA_2_Tau_decay;//!< Rise Time Constant GABAA 2 Synapse in ms
-    
+
     // Dopamine modulation parameters
     double tata_dop;       //!< Proportion of open dopamine receptors.
 
@@ -324,7 +324,6 @@ public:
     double I_NMDA_1_;    //!< NMDA_1 current; member only to allow recordin
     double I_GABAA_1_; //!< GABAA current; member only to allow recording
     double I_GABAA_2_; //!< GABAA current; member only to allow recording
-    double I_GABAA_3_; //!< GABAA current; member only to allow recording
     double I_V_clamp_; //!< Current to inject in voltage clamp; member only to allow recording
 
     /**

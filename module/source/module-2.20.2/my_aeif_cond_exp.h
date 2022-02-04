@@ -74,7 +74,7 @@ If V > V_peak
 	if ( u < 0  )
 		V = min(V_reset + u*V_reset_slope1, V_reset_max_slope1);
 	else if ( u >= 0  )
-		V = min(V_reset + u*V_reset_slope2, V_reset_max_slope1);
+		V = min(V_reset + u*V_reset_slope2, V_reset_max_slope2);
 	u = u + a
 I = g_AMPA_1( V - AMPA_1_E_rev) + g_NMDA_1( V - NMDA_1_E_rev) + g_GABAA( V - GABAA_E_rev) + I_e
 with dopamine modulation
@@ -324,7 +324,6 @@ public:
     double I_NMDA_1_;    //!< NMDA_1 current; member only to allow recordin
     double I_GABAA_1_; //!< GABAA current; member only to allow recording
     double I_GABAA_2_; //!< GABAA current; member only to allow recording
-    double I_GABAA_3_; //!< GABAA current; member only to allow recording
     double I_V_clamp_; //!< Current to inject in voltage clamp; member only to allow recording
 
     /**

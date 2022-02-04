@@ -127,17 +127,9 @@ SeeAlso: poisson_generator_periodic_ps, Device, parrot_neuron
 
 //    nest::port check_connection(nest::Connection&, nest::port);
 	nest::port send_test_event(nest::Node&, nest::rport, nest::synindex, bool);
-	
+
     void get_status(DictionaryDatum &) const;
     void set_status(const DictionaryDatum &) ;
-    
-   /**
-   * Since volume transmitters are duplicated on each thread, and are
-   * hence treated just as devices during node creation, we need to
-   * define the corresponding setter and getter for local_device_id.
-   **/
-  void set_local_device_id( const nest::index ldid );
-  nest::index get_local_device_id() const;
 
   private:
 
@@ -165,8 +157,6 @@ SeeAlso: poisson_generator_periodic_ps, Device, parrot_neuron
       void get(DictionaryDatum&) const;  //!< Store current values in dictionary
       void set(const DictionaryDatum&);  //!< Set values from dicitonary
     };
-    
-    nest::index local_device_id_;
 
     // ------------------------------------------------------------
 
@@ -237,18 +227,6 @@ SeeAlso: poisson_generator_periodic_ps, Device, parrot_neuron
     // if we get here, temporaries contain consistent set of properties
     P_ = ptmp;
   }
-  
-inline void
-poisson_generator_periodic::set_local_device_id( const nest::index ldid )
-{
-  local_device_id_ = ldid;
-}
-
-inline nest::index
-poisson_generator_periodic::get_local_device_id() const
-{
-  return local_device_id_;
-}
 
 } // namespace mynest
 

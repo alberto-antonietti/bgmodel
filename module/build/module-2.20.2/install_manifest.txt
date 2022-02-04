@@ -1,8 +1,0 @@
-/home/marco/nest/lib/nest/ml_module.so
-/home/marco/nest/lib/nest/libml_module.so
-/home/marco/nest/include/ml_module.h
-/home/marco/nest/share/nest/sli/ml_module-init.sli
-/home/marco/nest/share/nest/sli/ml_module.sli
-/home/marco/nest/share/nest/sli/example.sli
-/home/marco/nest/share/doc/nest/help/helpindex.html
-/home/marco/nest/share/doc/nest/help/helpindex.hlp

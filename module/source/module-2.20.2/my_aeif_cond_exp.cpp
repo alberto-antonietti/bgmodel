@@ -77,7 +77,7 @@ RecordablesMap<mynest::my_aeif_cond_exp>::create()
 			&mynest::my_aeif_cond_exp::get_y_elem_<mynest::my_aeif_cond_exp::State_::G_AMPA_2>);
   insert_(Name("g_NMDA_1"),
 			&mynest::my_aeif_cond_exp::get_y_elem_<mynest::my_aeif_cond_exp::State_::G_NMDA_1>);
-  insert_(Name("g_GABAA_1"),
+  insert_(Name("g_-+GABAA_1"),
  			&mynest::my_aeif_cond_exp::get_y_elem_<mynest::my_aeif_cond_exp::State_::G_GABAA_1>);
   insert_(Name("g_GABAA_2"),
 			&mynest::my_aeif_cond_exp::get_y_elem_<mynest::my_aeif_cond_exp::State_::G_GABAA_2>);
@@ -550,9 +550,9 @@ mynest::my_aeif_cond_exp::init_buffers_()
   B_.spikes_AMPA_1_.clear();       // includes resize
   B_.spikes_AMPA_2_.clear();       // includes resize
   B_.spikes_NMDA_1_.clear();       // includes resize
-  B_.spikes_GABAA_1_.clear();    // includes resize
-  B_.spikes_GABAA_2_.clear();    // includes resize
-  B_.currents_.clear();  // includes resize
+  B_.spikes_GABAA_1_.clear();       // includes resize
+  B_.spikes_GABAA_2_.clear();       // includes resize
+  B_.currents_.clear();             // includes resize
   Archiving_Node::clear_history();
 
   B_.logger_.reset();

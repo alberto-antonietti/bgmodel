@@ -1,4 +1,10 @@
 # Bgmodel
+This is a forked repo. We updated the original neuron models and synapses to be run in Pyhton3.8 and nest2.20.2. Inside module, run the following line to install our module version.
+```
+./install-module-2.20.2.sh $NEST INSTALLATION PATH$
+```
+The following documentation refers to the original model
+
 This is a basal ganglia model currently including striatum, 
 globus pallidus, substantia nigra reticulata and subthalamus.
 The model includes dopamine modulated neurons and synapses, 

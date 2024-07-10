@@ -279,8 +279,8 @@ if ( NOT CMAKE_CROSSCOMPILING )
   # doc/help and generate a local help index in the build directory containing 
   # links to the help files.
   add_custom_command( TARGET generate_help POST_BUILD
-    COMMAND python -B generate_help.py "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}"
-    COMMAND python -B generate_helpindex.py "${PROJECT_BINARY_DIR}/doc"
+    COMMAND python3 -B generate_help.py "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}"
+    COMMAND python3 -B generate_helpindex.py "${PROJECT_BINARY_DIR}/doc"
     WORKING_DIRECTORY "${CMAKE_INSTALL_PREFIX}/${NEST_DATADIR}/help_generator"
     COMMENT "Extracting help information; this may take a litte while."
     )
@@ -293,7 +293,7 @@ if ( NOT CMAKE_CROSSCOMPILING )
   # located in the global installation directory for documentation.
   install( CODE
     "execute_process(
-      COMMAND python -B generate_helpindex.py \"${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DOCDIR}\"
+      COMMAND python3 -B generate_helpindex.py \"${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DOCDIR}\"
       WORKING_DIRECTORY \"${CMAKE_INSTALL_PREFIX}/${NEST_DATADIR}/help_generator\"
     )"
     )
